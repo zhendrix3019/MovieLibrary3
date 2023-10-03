@@ -6,13 +6,9 @@ string path = Directory.GetCurrentDirectory() + "\\nlog.config";
 // create instance of Logger
 var logger = LogManager.LoadConfiguration(path).GetCurrentClassLogger();
 logger.Info("Program started");
+string movieFilePath = Directory.GetCurrentDirectory() + "\\movies.csv";
 
-Movie movie = new Movie
-{
-  movieId = 1,
-  title = "Jeff's Killer Movie (2019)",
-  genres = new List<string> { "Action", "Romance", "Comedy" }
-};
-Console.WriteLine(movie.Display());
+MovieFile movieFile = new MovieFile(movieFilePath);
+
 
 logger.Info("Program ended");
